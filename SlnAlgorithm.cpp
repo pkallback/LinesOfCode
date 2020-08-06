@@ -1,11 +1,7 @@
 // SlnAlgorithm.cpp : implementation of the CSlnAlgorithm class
 //
 
-<<<<<<< HEAD
-#include "stdafx.h"
-=======
 #include "pch.h"
->>>>>>> LinesOfCode
 #include "resource.h"
 #include <string>
 #include "SlnAlgorithm.h"
@@ -92,30 +88,36 @@ bool CSlnAlgorithm::ExtractSlnInformation(CString &slnFileFullPath) {
 			// Project name
 			int start = projectLine.Find(_T(") = \""), 0);
 			int stop = projectLine.Find(_T("\", \""), 0);
-			slnProject.mProjectName = projectLine.Mid(start + 5, stop - start - 5);
+			slnProject.mProjectName = projectLine.Mid(start + 5,
+				stop - start - 5);
 
 			// Project relative path
 			start = stop;
 			stop += 2;
 			stop = projectLine.Find(_T("\", \""), stop);
-			slnProject.mVcxprojRelativePath = projectLine.Mid(start + 4, stop - start - 4);
+			slnProject.mVcxprojRelativePath = projectLine.Mid(start + 4,
+				stop - start - 4);
 
 			// Project guid
 			start = stop;
 			stop += 2;
 			stop = projectLine.Find(_T("}\""), stop);
-			slnProject.mVcxprojGuid = projectLine.Mid(start + 4, stop - start - 3);
+			slnProject.mVcxprojGuid = projectLine.Mid(start + 4,
+				stop - start - 3);
 
 			// Project full path
-			slnProject.mVcxprojFilesFullPath = mSlnAbsolutePath + slnProject.mVcxprojRelativePath;
+			slnProject.mVcxprojFilesFullPath = mSlnAbsolutePath + 
+				slnProject.mVcxprojRelativePath;
 
 			// Project absolute path
-			_tsplitpath_s(slnProject.mVcxprojFilesFullPath, drive, dir, fname, ext);
+			_tsplitpath_s(slnProject.mVcxprojFilesFullPath, drive, dir, fname,
+				ext);
 			_tmakepath_s(path, drive, dir, nullptr, nullptr);
 			slnProject.mVcxprojAbsolutePath = path;
 
 			// Project filters full path
-			slnProject.mVcxprojFiltersFilesFullPath = slnProject.mVcxprojFilesFullPath + _T(".filters");
+			slnProject.mVcxprojFiltersFilesFullPath = 
+				slnProject.mVcxprojFilesFullPath + _T(".filters");
 
 			mSlnProjectArray.push_back(slnProject);
 		}
@@ -474,7 +476,8 @@ int CSlnAlgorithm::GetFileFormat(const uint8_t *pData, FileType &fileType) {
 	return fileID;
 }
 
-bool CSlnAlgorithm::ByteOrderTest(const uint8_t *pDataA, const uint8_t *pDataB, int numOfBytes) {
+bool CSlnAlgorithm::ByteOrderTest(const uint8_t *pDataA, const uint8_t *pDataB,
+	int numOfBytes) {
 	bool isSame = true;
 	for (int i = 0; i < numOfBytes; i++) {
 		if (pDataA[i] != pDataB[i]) {

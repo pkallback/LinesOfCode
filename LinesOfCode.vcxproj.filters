@@ -18,12 +18,6 @@
     <ClInclude Include="LOC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-=======
->>>>>>> LinesOfCode
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,26 +48,17 @@
     <ClInclude Include="..\..\Comn\DBGraphics\DBGraphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-=======
     <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
->>>>>>> LinesOfCode
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LOC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-=======
->>>>>>> LinesOfCode
     <ClCompile Include="MainFrm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -98,12 +83,9 @@
     <ClCompile Include="..\..\Comn\DBGraphics\DBGraphicsAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
-=======
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
->>>>>>> LinesOfCode
   </ItemGroup>
   <ItemGroup>
     <None Include="LOC.reg" />

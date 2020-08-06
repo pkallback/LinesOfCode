@@ -1,11 +1,7 @@
 // LOCDoc.cpp : implementation of the CLOCDoc class
 //
 
-<<<<<<< HEAD
-#include "stdafx.h"
-=======
 #include "pch.h"
->>>>>>> LinesOfCode
 // SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
 // and search filter handlers and allows sharing of document code with that project.
 #ifndef SHARED_HANDLERS
@@ -29,18 +25,15 @@ END_MESSAGE_MAP()
 
 // CLOCDoc construction/destruction
 
-CLOCDoc::CLOCDoc() noexcept
-{
+CLOCDoc::CLOCDoc() noexcept {
 	// TODO: add one-time construction code here
 
 }
 
-CLOCDoc::~CLOCDoc()
-{
+CLOCDoc::~CLOCDoc() {
 }
 
-BOOL CLOCDoc::OnNewDocument()
-{
+BOOL CLOCDoc::OnNewDocument() {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
@@ -52,14 +45,11 @@ BOOL CLOCDoc::OnNewDocument()
 
 // CLOCDoc serialization
 
-void CLOCDoc::Serialize(CArchive& ar)
-{
-	if (ar.IsStoring())
-	{
+void CLOCDoc::Serialize(CArchive& ar) {
+	if (ar.IsStoring()) {
 		// TODO: add storing code here
 	}
-	else
-	{
+	else {
 		// TODO: add loading code here
 	}
 }
@@ -67,8 +57,7 @@ void CLOCDoc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // Support for thumbnails
-void CLOCDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
-{
+void CLOCDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds) {
 	// Modify this code to draw the document's data
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
 
@@ -88,8 +77,7 @@ void CLOCDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // Support for Search Handlers
-void CLOCDoc::InitializeSearchContent()
-{
+void CLOCDoc::InitializeSearchContent() {
 	CString strSearchContent;
 	// Set search contents from document's data.
 	// The content parts should be separated by ";"
@@ -98,18 +86,14 @@ void CLOCDoc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void CLOCDoc::SetSearchContent(const CString& value)
-{
-	if (value.IsEmpty())
-	{
+void CLOCDoc::SetSearchContent(const CString& value) {
+	if (value.IsEmpty()) {
 		RemoveChunk(PKEY_Search_Contents.fmtid, PKEY_Search_Contents.pid);
 	}
-	else
-	{
+	else {
 		CMFCFilterChunkValueImpl *pChunk = nullptr;
 		ATLTRY(pChunk = new CMFCFilterChunkValueImpl);
-		if (pChunk != nullptr)
-		{
+		if (pChunk != nullptr) {
 			pChunk->SetTextValue(PKEY_Search_Contents, value, CHUNK_TEXT);
 			SetChunkValue(pChunk);
 		}
@@ -121,24 +105,22 @@ void CLOCDoc::SetSearchContent(const CString& value)
 // CLOCDoc diagnostics
 
 #ifdef _DEBUG
-void CLOCDoc::AssertValid() const
-{
+void CLOCDoc::AssertValid() const {
 	CDocument::AssertValid();
 }
 
-void CLOCDoc::Dump(CDumpContext& dc) const
-{
+void CLOCDoc::Dump(CDumpContext& dc) const {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 // CLOCDoc commands
 
-BOOL CLOCDoc::OnOpenDocument(LPCTSTR lpszPathName)
-{
-	if (!CDocument::OnOpenDocument(lpszPathName))
+BOOL CLOCDoc::OnOpenDocument(LPCTSTR lpszPathName) {
+	if (!CDocument::OnOpenDocument(lpszPathName)) {
 		return FALSE;
-
+	}
+	
 	// TODO:  Add your specialized creation code here
 	theApp.SetSlnFileOpen();
 

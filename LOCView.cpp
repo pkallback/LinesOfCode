@@ -1,11 +1,7 @@
 // LOCView.cpp : implementation of the CLOCView class
 //
 
-<<<<<<< HEAD
-#include "stdafx.h"
-=======
 #include "pch.h"
->>>>>>> LinesOfCode
 // SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
 // and search filter handlers and allows sharing of document code with that project.
 #ifndef SHARED_HANDLERS
@@ -36,16 +32,13 @@ END_MESSAGE_MAP()
 
 // CLOCView construction/destruction
 
-CLOCView::CLOCView() noexcept
-{
+CLOCView::CLOCView() noexcept {
 }
 
-CLOCView::~CLOCView()
-{
+CLOCView::~CLOCView() {
 }
 
-BOOL CLOCView::PreCreateWindow(CREATESTRUCT& cs)
-{
+BOOL CLOCView::PreCreateWindow(CREATESTRUCT& cs) {
 	// TODO: Modify the Window class or styles here by modifying
 	//  the CREATESTRUCT cs
 	mpMemGraphics = std::make_shared<CDBGraphics>();
@@ -56,8 +49,7 @@ BOOL CLOCView::PreCreateWindow(CREATESTRUCT& cs)
 
 // CLOCView drawing
 
-void CLOCView::OnDraw(CDC* pDC)
-{
+void CLOCView::OnDraw(CDC* pDC) {
 	// Include the framework for GDI+ and the nice double buffer routines!
 	CRect rect;
 	GetClientRect(&rect);
@@ -66,8 +58,9 @@ void CLOCView::OnDraw(CDC* pDC)
 
 	CLOCDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-	if (!pDoc)
+	if (!pDoc) {
 		return;
+	}
 
 	CString pathName = pDoc->GetPathName();
 
@@ -113,8 +106,7 @@ void CLOCView::OnDraw(CDC* pDC)
 			// Copy window content to memory DC
 			mpMemGraphics->CopyDC(pDC, rect.Width(), rect.Height());
 		}
-		else
-		{
+		else {
 			// This part in the code is  running when the
 			// window is not in focus.
 			mpMemGraphics->Render(&g);
@@ -125,14 +117,12 @@ void CLOCView::OnDraw(CDC* pDC)
 	// Write the directory path and the name of the files included 
 }
 
-void CLOCView::OnRButtonUp(UINT /* nFlags */, CPoint point)
-{
+void CLOCView::OnRButtonUp(UINT /* nFlags */, CPoint point) {
 	ClientToScreen(&point);
 	OnContextMenu(this, point);
 }
 
-void CLOCView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
-{
+void CLOCView::OnContextMenu(CWnd* /* pWnd */, CPoint point) {
 #ifndef SHARED_HANDLERS
 	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, 
 		point.x, point.y, this, TRUE);
@@ -142,18 +132,15 @@ void CLOCView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 // CLOCView diagnostics
 
 #ifdef _DEBUG
-void CLOCView::AssertValid() const
-{
+void CLOCView::AssertValid() const {
 	CView::AssertValid();
 }
 
-void CLOCView::Dump(CDumpContext& dc) const
-{
+void CLOCView::Dump(CDumpContext& dc) const {
 	CView::Dump(dc);
 }
 
-CLOCDoc* CLOCView::GetDocument() const // non-debug version is inline
-{
+CLOCDoc* CLOCView::GetDocument() const // non-debug version is inline {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CLOCDoc)));
 	return (CLOCDoc*)m_pDocument;
 }
@@ -161,13 +148,11 @@ CLOCDoc* CLOCView::GetDocument() const // non-debug version is inline
 
 // CLOCView message handlers
 
-BOOL CLOCView::OnEraseBkgnd(CDC* pDC)
-{
+BOOL CLOCView::OnEraseBkgnd(CDC* pDC) {
 	return TRUE;
 }
 
-void CLOCView::OnSize(UINT nType, int cx, int cy)
-{
+void CLOCView::OnSize(UINT nType, int cx, int cy) {
 	CView::OnSize(nType, cx, cy);
 
 	BOOL bRet;
@@ -189,8 +174,9 @@ void CLOCView::OnSize(UINT nType, int cx, int cy)
 	// Set perimeter for window in draw object
 	mpDrawObject->SetWindowRect(cx, cy);
 
-	if (!bRet)
+	if (!bRet) {
 		return;
+	}
 
 	// Resize list control
 	CRect clientRect;
@@ -207,8 +193,7 @@ void CLOCView::OnSize(UINT nType, int cx, int cy)
 	Invalidate(FALSE);
 }
 
-int CLOCView::OnCreate(LPCREATESTRUCT lpCreateStruct)
-{
+int CLOCView::OnCreate(LPCREATESTRUCT lpCreateStruct) {
 	if (CView::OnCreate(lpCreateStruct) == -1) {
 		return -1;
 	}
@@ -235,13 +220,11 @@ int CLOCView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-void CLOCView::UpdateListCtrl()
-{
+void CLOCView::UpdateListCtrl() {
 	mListCtrl.DeleteAllItems();
 
 	int itemCount = 0;
-	for (auto filterFile : mSlnAlgorithm.mFilterFileArray)
-	{
+	for (auto filterFile : mSlnAlgorithm.mFilterFileArray) {
 		CString val;
 		val.Format(_T("%d"), itemCount + 1);
 		mListCtrl.InsertItem(itemCount, val);
@@ -300,7 +283,5 @@ void CLOCView::OnFileOpenSource() {
 		\n%d lines in total\n%d blank lines\n%d comment lines\n%d code lines\n"), 
 		fnameExt, lines, blank, comment, code);
 
-	AfxMessageBox(message,MB_ICONINFORMATION);
-
-	return;
+	AfxMessageBox(message, MB_ICONINFORMATION);
 }

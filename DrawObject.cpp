@@ -1,11 +1,7 @@
 // DrawObject.cpp : implementation file
 //
 
-<<<<<<< HEAD
-#include "stdafx.h"
-=======
 #include "pch.h"
->>>>>>> LinesOfCode
 #include "DrawObject.h"
 #include <vector>
 #include <memory>
@@ -14,14 +10,12 @@
 
 // CIVDrawObject member functions
 
-void CDrawObject::SetWindowRect(const int cx, const int cy)
-{
+void CDrawObject::SetWindowRect(const int cx, const int cy) {
 	mCxGraphArea = cx;
 	mCyGraphArea = cy;
 }
 
-bool CDrawObject::DrawObject(Graphics* pG)
-{
+bool CDrawObject::DrawObject(Graphics* pG) {
 	if (pG == nullptr) {
 		return false;
 	}
@@ -39,13 +33,11 @@ bool CDrawObject::DrawObject(Graphics* pG)
 	return true;
 }
 
-void CDrawObject::SetFilenamePath(const CString filenamePath)
-{
+void CDrawObject::SetFilenamePath(const CString filenamePath) {
 	mFilenamePath = filenamePath;
 }
 
-void CDrawObject::WriteDirectoryContent(Graphics *pG)
-{
+void CDrawObject::WriteDirectoryContent(Graphics *pG) {
 	// Select color for the text
 	std::shared_ptr<SolidBrush> pColorFontSolidBrush = std::make_shared<SolidBrush>(_COLOR_TEXT);
 
@@ -54,7 +46,7 @@ void CDrawObject::WriteDirectoryContent(Graphics *pG)
 	std::shared_ptr<Gdiplus::Font> pTitleFont =
 		std::make_shared<Gdiplus::Font>(pFamilyFont.get(), 14.f, FontStyleBold, UnitPoint);
 	RectF titleFontRect;
-	CString measureString = _T("HelÅÄÖjgqµ");
+	CString measureString = _T("Helï¿½ï¿½ï¿½jgqï¿½");
 	pG->MeasureString(measureString, measureString.GetLength(), pTitleFont.get(), PointF(0.0,0.0), &titleFontRect);
 	std::shared_ptr<Gdiplus::Font> pNormalFont =
 		std::make_shared<Gdiplus::Font>(pFamilyFont.get(), 12.f, FontStyleRegular, UnitPoint);
@@ -118,8 +110,7 @@ void CDrawObject::WriteDirectoryContent(Graphics *pG)
 	}
 }
 
-bool CDrawObject::GetDirectoryContent(std::vector<CString> &directoryObjects, const CString fullPath, const int level)
-{
+bool CDrawObject::GetDirectoryContent(std::vector<CString> &directoryObjects, const CString fullPath, const int level) {
 	if (fullPath.IsEmpty()) {
 		return false;
 	}

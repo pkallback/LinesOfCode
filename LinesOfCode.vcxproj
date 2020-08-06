@@ -93,10 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-<<<<<<< HEAD
-=======
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
->>>>>>> LinesOfCode
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -119,10 +116,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-<<<<<<< HEAD
-=======
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
->>>>>>> LinesOfCode
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,10 +141,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-<<<<<<< HEAD
-=======
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
->>>>>>> LinesOfCode
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -177,10 +168,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-<<<<<<< HEAD
-=======
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
->>>>>>> LinesOfCode
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -207,16 +195,10 @@
     <ClInclude Include="LOCView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MFCListCtrlMod.h" />
-<<<<<<< HEAD
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="SlnAlgorithm.h" />
-    <ClInclude Include="stdafx.h" />
-=======
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SlnAlgorithm.h" />
     <ClInclude Include="framework.h" />
->>>>>>> LinesOfCode
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
@@ -229,11 +211,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MFCListCtrlMod.cpp" />
     <ClCompile Include="SlnAlgorithm.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="stdafx.cpp">
-=======
     <ClCompile Include="pch.cpp">
->>>>>>> LinesOfCode
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

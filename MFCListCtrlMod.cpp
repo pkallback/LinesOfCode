@@ -1,20 +1,18 @@
 // MFCListCtrlMod.cpp : implementation of the CMFCListCtrlMod class
 //
 
-<<<<<<< HEAD
-#include "stdafx.h"
-=======
 #include "pch.h"
->>>>>>> LinesOfCode
-// SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
-// and search filter handlers and allows sharing of document code with that project.
+// SHARED_HANDLERS can be defined in an ATL project implementing preview,
+// thumbnail and search filter handlers and allows sharing of document
+// code with that project.
 #ifndef SHARED_HANDLERS
 #include "LOC.h"
 #endif
 #include <vector>
 #include "MFCListCtrlMod.h"
 
-HFONT CMFCListCtrlMod::OnGetCellFont(int nRow, int nColum, DWORD /*dwData* = 0*/) {
+HFONT CMFCListCtrlMod::OnGetCellFont(int nRow, int nColum, 
+	DWORD /*dwData* = 0*/) {
 	return *mpFont;
 }
 
@@ -38,7 +36,8 @@ void CMFCListCtrlMod::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	CMFCListCtrl::OnKeyUp(nChar, nRepCnt, nFlags);
 }
 
-void CMFCListCtrlMod::CopySelectionToClipboard(POSITION firstPos, POSITION lastPos) {
+void CMFCListCtrlMod::CopySelectionToClipboard(POSITION firstPos,
+	POSITION lastPos) {
 	// Copy column header title text
 	int columns = 0;
 	LVCOLUMNW columnData;
@@ -100,7 +99,8 @@ void CMFCListCtrlMod::CopySelectionToClipboard(POSITION firstPos, POSITION lastP
 
 	// Copy to clipboard
 	if (CopyToClipboard(content)) {
-		AfxMessageBox(_T("Selected Items Copied to Clipboard!"), MB_ICONINFORMATION);
+		AfxMessageBox(_T("Selected Items Copied to Clipboard!"),
+			MB_ICONINFORMATION);
 	}
 }
 
@@ -114,7 +114,8 @@ bool CMFCListCtrlMod::CopyToClipboard(const std::wstring &w) {
 			CloseClipboard();
 			return false;
 		}
-		wchar_t *wgClipBoardBuffer = static_cast<wchar_t*>(GlobalLock(hgClipBuffer));
+		wchar_t *wgClipBoardBuffer = static_cast<wchar_t*>(
+			GlobalLock(hgClipBuffer));
 		wcscpy_s(wgClipBoardBuffer, sizeInWords, w.c_str());
 		GlobalUnlock(hgClipBuffer);
 		EmptyClipboard();
@@ -127,15 +128,14 @@ bool CMFCListCtrlMod::CopyToClipboard(const std::wstring &w) {
 	}
 }
 
-void CMFCListCtrlMod::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
-{
+void CMFCListCtrlMod::OnContextMenu(CWnd* /*pWnd*/, CPoint point) {
 	// TODO: Add your message handler code here
-	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_COPY, point.x, point.y, this, TRUE);
+	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_COPY, point.x, point.y,
+		this, TRUE);
 }
 
 
-void CMFCListCtrlMod::OnCopy()
-{
+void CMFCListCtrlMod::OnCopy() {
 	POSITION firstPosition = this->GetFirstSelectedItemPosition();
 	POSITION nextPosition = 0;
 	POSITION lastPosition = firstPosition;
@@ -157,8 +157,7 @@ void CMFCListCtrlMod::OnCopy()
 }
 
 
-void CMFCListCtrlMod::OnUpdateCopy(CCmdUI *pCmdUI)
-{
+void CMFCListCtrlMod::OnUpdateCopy(CCmdUI *pCmdUI) {
 	POSITION firstPosition = this->GetFirstSelectedItemPosition();
 	bool isItemsSelected = firstPosition > 0 ? true : false;
 

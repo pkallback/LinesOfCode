@@ -1,11 +1,7 @@
 // LOC.cpp : Defines the class behaviors for the application.
 //
 
-<<<<<<< HEAD
-#include "stdafx.h"
-=======
 #include "pch.h"
->>>>>>> LinesOfCode
 #include "afxwinappex.h"
 #include "afxdialogex.h"
 #include "LOC.h"
@@ -30,8 +26,7 @@ END_MESSAGE_MAP()
 
 // CLOCApp construction
 
-CLOCApp::CLOCApp() noexcept
-{
+CLOCApp::CLOCApp() noexcept {
 	m_bHiColorIcons = TRUE;
 
 	// support Restart Manager
@@ -57,8 +52,7 @@ CLOCApp theApp;
 
 // CLOCApp initialization
 
-BOOL CLOCApp::InitInstance()
-{
+BOOL CLOCApp::InitInstance() {
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
@@ -75,8 +69,7 @@ BOOL CLOCApp::InitInstance()
 	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
 	// Initialize OLE libraries
-	if (!AfxOleInit())
-	{
+	if (!AfxOleInit()) {
 		AfxMessageBox(IDP_OLE_INIT_FAILED);
 		return FALSE;
 	}
@@ -98,7 +91,6 @@ BOOL CLOCApp::InitInstance()
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 	LoadStdProfileSettings(4);  // Load standard INI file options (including MRU)
 
-
 	InitContextMenuManager();
 
 	InitKeyboardManager();
@@ -117,10 +109,10 @@ BOOL CLOCApp::InitInstance()
 		RUNTIME_CLASS(CLOCDoc),
 		RUNTIME_CLASS(CMainFrame),       // main SDI frame window
 		RUNTIME_CLASS(CLOCView));
-	if (!pDocTemplate)
+	if (!pDocTemplate) {
 		return FALSE;
+	}
 	AddDocTemplate(pDocTemplate);
-
 
 	// Parse command line for standard shell commands, DDE, file open
 	CCommandLineInfo cmdInfo;
@@ -130,11 +122,11 @@ BOOL CLOCApp::InitInstance()
 	EnableShellOpen();
 	RegisterShellFileTypes(TRUE);
 
-
 	// Dispatch commands specified on the command line.  Will return FALSE if
 	// app was launched with /RegServer, /Register, /Unregserver or /Unregister.
-	if (!ProcessShellCommand(cmdInfo))
+	if (!ProcessShellCommand(cmdInfo)) {
 		return FALSE;
+	}
 
 	// The one and only window has been initialized, so show and update it
 	m_pMainWnd->ShowWindow(SW_SHOW);
@@ -146,8 +138,7 @@ BOOL CLOCApp::InitInstance()
 	return TRUE;
 }
 
-int CLOCApp::ExitInstance()
-{
+int CLOCApp::ExitInstance() {
 	//TODO: handle additional resources you may have added
 	AfxOleTerm(FALSE);
 
@@ -161,8 +152,7 @@ int CLOCApp::ExitInstance()
 
 // CLOCApp customization load/save methods
 
-void CLOCApp::PreLoadState()
-{
+void CLOCApp::PreLoadState() {
 	BOOL bNameValid;
 	CString strName;
 	bNameValid = strName.LoadString(IDS_EDIT_MENU);
@@ -170,12 +160,10 @@ void CLOCApp::PreLoadState()
 	GetContextMenuManager()->AddMenu(strName, IDR_COPY);
 }
 
-void CLOCApp::LoadCustomState()
-{
+void CLOCApp::LoadCustomState() {
 }
 
-void CLOCApp::SaveCustomState()
-{
+void CLOCApp::SaveCustomState() {
 }
 
 // CLOCApp message handlers
