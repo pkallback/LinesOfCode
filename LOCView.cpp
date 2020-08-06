@@ -140,7 +140,7 @@ void CLOCView::Dump(CDumpContext& dc) const {
 	CView::Dump(dc);
 }
 
-CLOCDoc* CLOCView::GetDocument() const // non-debug version is inline {
+CLOCDoc* CLOCView::GetDocument() const { // non-debug version is inline 
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CLOCDoc)));
 	return (CLOCDoc*)m_pDocument;
 }
