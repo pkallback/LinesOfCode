@@ -1,7 +1,11 @@
 // DrawObject.cpp : implementation file
 //
 
+<<<<<<< HEAD
 #include "stdafx.h"
+=======
+#include "pch.h"
+>>>>>>> LinesOfCode
 #include "DrawObject.h"
 #include <vector>
 #include <memory>

@@ -1,7 +1,11 @@
 // SlnAlgorithm.cpp : implementation of the CSlnAlgorithm class
 //
 
+<<<<<<< HEAD
 #include "stdafx.h"
+=======
+#include "pch.h"
+>>>>>>> LinesOfCode
 #include "resource.h"
 #include <string>
 #include "SlnAlgorithm.h"

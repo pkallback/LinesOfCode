@@ -1,7 +1,11 @@
 // AboutDlg.cpp : Implementation file.
 //
 
+<<<<<<< HEAD
 #include "stdafx.h"
+=======
+#include "pch.h"
+>>>>>>> LinesOfCode
 #include "LOC.h"
 #include "AboutDlg.h"
 

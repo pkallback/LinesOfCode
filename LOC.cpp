@@ -1,7 +1,11 @@
 // LOC.cpp : Defines the class behaviors for the application.
 //
 
+<<<<<<< HEAD
 #include "stdafx.h"
+=======
+#include "pch.h"
+>>>>>>> LinesOfCode
 #include "afxwinappex.h"
 #include "afxdialogex.h"
 #include "LOC.h"

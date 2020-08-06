@@ -1,7 +1,11 @@
 // MainFrm.cpp : implementation of the CMainFrame class
 //
 
+<<<<<<< HEAD
 #include "stdafx.h"
+=======
+#include "pch.h"
+>>>>>>> LinesOfCode
 #include "LOC.h"
 
 #include "MainFrm.h"
