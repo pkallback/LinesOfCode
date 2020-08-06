@@ -1,0 +1,29 @@
+Algorithm Finding Code Files from MSVS Solution file
+
+1. When opening the .sln file, save the absolute path of the file.
+2. When reading the .sln file, look for the line: 
+	Project("UUID-solution") = "ProjName", "Relpath.vcxproj,", "UUID-project"
+	In the solution there can be many subprojects so iterate until the line
+	EndProject is found.
+3a. For each Project open the .vcxproj.filters file, save the absolute path of
+	the file. Look for all <Filter> containing <Extensions>. In the <Filter>
+	tag save the key-value Include, which is associated to the <Extensions>.
+	Iterate through the <Filters> containing <Extensions> and save them.
+3b. Iterate through the .vcxproj.filters file and look for <ClInclude> with the
+	the key Include. The key-value is the actual file. Match the extension
+	with the <Extensions> value during 3. and save the file with the specific
+	Filter category.
+4.	For each file and for each line, categorize 'Blank', 'Comment', and 'Code'.
+
+For each project, precent each file with:
+|Project|Filename|Filetype|Extension|Lines|Blank|Comment|Code|
+
+.vcxproj.filters rules (xml):
+<Filter Include="Source Files"> 
+tag, key and key-value
+
+<Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+values of extensions in between tag and end-tag
+
+<ClInclude Include="stdafx.h">
+tag, key and key-value
